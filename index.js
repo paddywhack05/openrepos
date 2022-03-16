@@ -8,6 +8,8 @@ const dog = require('./commands/dog');
 const dogslash = require('./commands/dogslash');
 const minecraft = require('./commands/minecraft');
 const rap = require('./commands/rap');
+require('dotenv').config()
+
 
 
 //const meme = require('./commands/meme');
@@ -151,7 +153,13 @@ client.on('messageCreate', async message =>{
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
-  
+    }
+    if (message.content.toLowerCase() ==="do a barrel roll"){
+        client.commands.get('roll').execute(message,client);
+    }
+
+    if (message.content.toLowerCase() === "!dice"){ 
+        client.commands.get('dice').execute(message,client);
     }
     
     if (message.content.toLowerCase() ==="!button"){
@@ -167,10 +175,14 @@ client.on('messageCreate', async message =>{
     if (message.content.toLowerCase() === "!ring"){ 
        client.commands.get('ring').execute(message,client);
     }
+    if (message.content.toLowerCase() === "!rickroll"){ 
+        client.commands.get('rickroll').execute(message,client);
+     }
 
     if (message.content.toLowerCase() === "!infuriating"){ 
         client.commands.get('infuriating').execute(message,client);
  }
+ 
  if (message.content.toLowerCase() === "!cat"){ 
     client.commands.get('cat').execute(message,client);
 }
@@ -196,11 +208,9 @@ client.commands.get('ukrainenews').execute(message,client);
 if (message.content.toLowerCase() === "!ukraine"){ 
     client.commands.get('ukraine').execute(message,client);
 }
-if (message.content.toLowerCase() === '!commands') {
+if (message.content.toLowerCase() === '!commands'||message.content.toLowerCase()=== '!help') {
 client.commands.get('command').execute(message,client);
 }
-
-   
 
     if (message.content.toLowerCase() === 'up, up, down, down, left, right, left, right, b, a'|| message.content.toLowerCase === "up up down down left right left right b a") {
     client.commands.get('konamicode').execute(message,client);
